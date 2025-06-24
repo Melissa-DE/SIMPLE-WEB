@@ -1,0 +1,482 @@
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+/* variables */
+:root {
+  /* Colors */
+  --primary-color: #ffcd42;
+  --secondary-color: #ffd35c;
+  --bg-primary: #ffffff;
+  --text-color: #222222;
+  --text-color-two: #ffffff;
+  --bg-secondary: #000000;
+  --card-background: #f4f4f4;
+  --bg-secondary-two: #111111;
+
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+  /* Font Weight */
+  --weight-small: 400;
+  --weight-semibold: 600;
+  --weight-bold: 800;
+
+  /* Max width */
+  --width-small: 600px;
+  --width-medium: 1100px;
+  --width-large: 1300px;
+}
+
+[data-theme="dark"] {
+  --primary-color: #9911bb;
+  --secondary-color: #ff5cc9;
+  --bg-primary: #ffff;
+  --text-color: #0000;
+  --text-color-two: #222222;
+  --bg-secondary: #ffffff;
+  --card-background: #111111;
+  --bg-secondary-two: #f4f4f4;
+  --shadow: 0 2px 10px rgba(95, 95, 95, 0.2);
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Reset default styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* Main styling */
+body {
+  background: #ccc;
+  color: var(--text-color);
+  font-family: "Raleway", sans-serif;
+  line-height: 1.5;
+}
+/* Navbar Wrapper */
+#header {
+  background-color: var(--bg-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Navbar Container */
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+/* Logo Image */
+#Logo img {
+  height: 45px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff5cc9;
+}
+
+/* Resume Button */
+.btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #9911bb;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: 0.3s;
+}
+
+/* Toggle Switch */
+.Toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-left: 1rem;
+}
+
+.icon i {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Switch Styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #fff;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    background: var(--bg-primary);
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    z-index: 99;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+}
+
+/* Hero Section */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  margin-top: 6rem;
+}
+
+/* Profile Image with 50% Border Radius */
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: bounce 1s infinite alternate;
+  margin-bottom: 1rem;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-container h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #9911bb;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.hero-container p {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 1rem auto;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Reuse Button CSS */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #9911bb;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #ff5cc9;
+  color: #fff;
+}
+
+
+
+
+
+/* Project cards */
+.card {
+  padding: 1rem;
+  background: #f4f4f4;
+  color: #000;
+  border-radius: 5px;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.card a {
+  color: #ffffff;
+  transition: 0.25s ease-in-out;
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+}
+
+.card a:hover {
+  color: var(--primary-color);
+}
+
+.card:hover {
+  box-shadow: inset 0 100px 1000px 10px rgba(0, 0, 0, 0.8);
+}
+
+.card:hover .project-info {
+  opacity: 1;
+}
+
+/* Certificate Section Styling */
+.certificate-content {
+  padding: 60px 20px;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+}
+
+.context-text h2 {
+  font-size: 2.5rem;
+  color: #9911bb;
+  margin-bottom: 10px;
+}
+
+.context-text p {
+  font-size: 1.2rem;
+  color: #c9e8ff;
+  margin-bottom: 40px;
+}
+
+/* Responsive Grid Layout */
+.Certificate {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Certificate Card Design */
+.card {
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.Cert.info {
+  padding: 1.5rem;
+}
+
+.Cert.info h3 {
+  font-size: 1.2rem;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.Cert.info img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 2px solid #6666ff;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* Resume Button */
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: #ff5cc9;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background-color: #9911bb;
+}
+
+/* Footer */
+#footer {
+  background: #9911bb;
+  padding: 2rem 1rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Footer container */
+#footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+}
+
+/* Email link */
+#footer a {
+  font-size: 0.9rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+#footer a:hover {
+  opacity: 0.6;
+}
+
+/* Social section */
+#footer .Social {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Social icons */
+#footer .Social img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* ensures white icons show */
+  transition: transform 0.3s ease;
+}
+
+#footer .Social img:hover {
+  transform: scale(1.2);
+}
+
+/* Copyright */
+#footer p {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+@media (max-width: 500px) {
+  #footer .Social {
+    gap: 0.8rem;
+  }
+
+  #footer .Social img {
+    width: 20px;
+    height: 20px;
+  }
+
+  #footer a,
+  #footer p {
+    font-size: 0.75rem;
+  }
+}
